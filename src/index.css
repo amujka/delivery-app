@@ -12,3 +12,12 @@
 html {
 	font-family: 'Outfit', sans-serif;
 }
+
+@keyframes fadeIn {
+	0% {
+		@apply opacity-0;
+	}
+	100% {
+		@apply opacity-100;
+	}
+}

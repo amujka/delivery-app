@@ -1,0 +1,22 @@
+.header {
+	@apply relative p-4;
+}
+
+.header__background {
+	@apply absolute top-0 left-0 w-full h-full -z-10;
+}
+.header__content {
+	@apply flex flex-col items-start gap-5 w-1/2 text-white animate-[fadeIn_3s];
+}
+
+.header__content h2 {
+	@apply text-[max(3.5vw,22px)] font-medium;
+}
+
+.header__content p {
+	@apply text-[1vw];
+}
+
+.header__content button {
+	@apply py-2.5 px-7 bg-white text-gray-500 rounded-full;
+}
