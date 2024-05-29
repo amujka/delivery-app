@@ -1,0 +1,24 @@
+.menu {
+	@apply flex flex-col gap-5 border-b border-gray-500 pb-10;
+}
+.menu__title {
+	@apply text-3xl font-semibold text-black;
+}
+
+.menu__subtitle {
+	@apply w-3/5;
+}
+
+.menu__list {
+	@apply flex gap-5 w-full overflow-x-auto xl:justify-center;
+}
+
+.menu__item {
+	@apply shrink-0 text-center cursor-pointer;
+}
+.menu__item figure {
+	@apply overflow-hidden rounded-full;
+}
+.menu__item img {
+	@apply hover:scale-[1.1] duration-200;
+}
