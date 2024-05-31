@@ -2,6 +2,7 @@ import basket_icon from './images/basket_icon.png';
 import logo from './images/logo.png';
 import header_img from './images/header_img.png';
 import search_icon from './images/search_icon.png';
+import all_food from './images/all_food.png';
 import menu_1 from './images/menu_1.png';
 import menu_2 from './images/menu_2.png';
 import menu_3 from './images/menu_3.png';
@@ -82,6 +83,11 @@ export const assets = {
 };
 
 export const menu_list = [
+	,
+	{
+		menu_name: 'All',
+		menu_image: all_food,
+	},
 	{
 		menu_name: 'Salad',
 		menu_image: menu_1,

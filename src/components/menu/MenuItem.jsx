@@ -1,14 +1,17 @@
-import React from 'react'
 
-const MenuItem = ({item}) => {
-  return (
-	<li className='menu__item'>
-		<figure>
-			<img src={item.menu_image} alt={item.menu_name} />
-		</figure>
-		<p>{item.menu_name}</p>
-	</li>
-  )
+const MenuItem = ({item,onSelect,activeItemName}) => {
+	return (
+		<li className={`menu__item ${activeItemName===item.menu_name?'active':null}`}  onClick={()=>onSelect(item.menu_name)}>
+			{
+				item.menu_image?
+					<figure>
+						<img src={item.menu_image} alt={item.menu_name} />
+					</figure>:
+					<div className="menu__item_placeholder"></div>
+			}
+			<p>{item.menu_name}</p>
+		</li>
+	)
 }
 
 export default MenuItem

@@ -6,7 +6,7 @@
 	@apply absolute top-0 left-0 w-full h-full -z-10;
 }
 .header__content {
-	@apply flex flex-col items-start gap-5 w-1/2 text-white animate-[fadeIn_3s];
+	@apply flex flex-col items-start gap-5 w-full text-white animate-[fadeIn_3s] md:w-1/2;
 }
 
 .header__content h2 {
@@ -14,7 +14,7 @@
 }
 
 .header__content p {
-	@apply text-[1vw];
+	@apply text-[max(12px,1vw)];
 }
 
 .header__content button {

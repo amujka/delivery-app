@@ -12,10 +12,10 @@ const Navbar = () => {
 			</ul>
 			<div className="navbar__icons_wrap">
 				<div>
-					<img src={assets.search_icon} alt="search" />
+					<img className="navbar__icon" src={assets.search_icon} alt="search" />
 				</div>
 				<div>
-					<img src={assets.basket_icon} alt="basket" />
+					<img className="navbar__icon" src={assets.basket_icon} alt="basket" />
 				</div>
 				<button>sign in</button>
 			</div>
