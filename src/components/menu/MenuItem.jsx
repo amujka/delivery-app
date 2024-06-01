@@ -1,17 +1,48 @@
+import { useState } from 'react';
+import { assets } from '../../assets/assets';
 
-const MenuItem = ({item,onSelect,activeItemName}) => {
+const MenuItem = ({ menuItem }) => {
+	const [showAmount, setShowAmount] = useState(false);
+
 	return (
-		<li className={`menu__item ${activeItemName===item.menu_name?'active':null}`}  onClick={()=>onSelect(item.menu_name)}>
-			{
-				item.menu_image?
-					<figure>
-						<img src={item.menu_image} alt={item.menu_name} />
-					</figure>:
-					<div className="menu__item_placeholder"></div>
-			}
-			<p>{item.menu_name}</p>
+		<li className='menu__item'>
+			showAmount:{showAmount ? 'true' : 'false'}
+			<div className='menu__item_top'>
+				<figure>
+					<img
+						className='menu__item_image'
+						src={menuItem.image}
+						alt={menuItem.name}
+					/>
+				</figure>
+				<div className='menu__show_amount'>
+					{showAmount ? (
+						<div className='menu__item_amount'>
+							<button>
+								<img src={assets.remove_icon_red} alt='' />
+							</button>
+							{0}
+							<button className=''>
+								<img src={assets.add_icon_green} alt='' />
+							</button>
+						</div>
+					) : (
+						<button
+							className='menu__show_amount_btn'
+							onClick={() => setShowAmount((prev) => !prev)}
+						>
+							<img src={assets.add_icon_white} alt='add' />
+						</button>
+					)}
+				</div>
+			</div>
+			<div className='menu__item_bottom'>
+				<h3 className='menu__item_name'>{menuItem.name}</h3>
+				<p className='menu__item_description'>{menuItem.description}</p>
+				<p className='menu__item_price'>€ {menuItem.price}</p>
+			</div>
 		</li>
-	)
-}
+	);
+};
 
-export default MenuItem
+export default MenuItem;

@@ -9,43 +9,100 @@
 	@apply md:w-3/5;
 }
 
-.menu__list {
+.menu__category_list {
 	@apply flex gap-5 w-fit mx-auto p-1 overflow-x-auto;
 }
 
-.menu__list::-webkit-scrollbar {
+.menu__category_list::-webkit-scrollbar {
 	@apply h-1;
 }
 
-.menu__list::-webkit-scrollbar-track {
+.menu__category_list::-webkit-scrollbar-track {
 	@apply bg-orange-100 rounded-md;
 }
 
-.menu__list::-webkit-scrollbar-thumb {
+.menu__category_list::-webkit-scrollbar-thumb {
 	@apply bg-orange-500 rounded-md;
 }
 
-.menu__item {
+.menu__category {
 	@apply relative shrink-0 text-center;
 }
 
-.menu__item figure {
+.menu__category figure {
 	@apply relative overflow-hidden rounded-full cursor-pointer;
 }
 
-.menu__item figure::after {
+.menu__category figure::after {
 	@apply content-[''] absolute top-0 left-0 w-full h-full bg-black/20 pointer-events-none;
 }
 
-.menu__item.active figure,
-.menu__item figure:hover {
+.menu__category.active figure,
+.menu__category figure:hover {
 	@apply outline outline-orange-500 outline-2;
 }
 
-.menu__item img {
+.menu__category img {
 	@apply hover:scale-[1.1] duration-200;
 }
 
-.menu__item p {
+.menu__category p {
 	@apply absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none text-white;
+}
+
+.menu__container {
+	@apply flex flex-col gap-10;
+}
+
+.menu__list {
+	@apply flex flex-wrap gap-2 md:gap-3 lg:gap-5;
+}
+
+.menu__category_name {
+	@apply text-2xl text-orange-500 font-semibold mb-2;
+}
+
+.menu__item {
+	@apply basis-[calc(50%-4px)] bg-white md:basis-[calc((100%-24px)/3)] lg:basis-[calc(25%-15px)] shadow-sm;
+}
+
+.menu__item figure {
+	@apply rounded-t-md overflow-hidden;
+}
+
+.menu__item:hover .menu__item_image {
+	@apply scale-[1.1];
+}
+
+.menu__item .menu__item_image {
+	@apply duration-200;
+}
+
+.menu__item_top {
+	@apply relative;
+}
+
+.menu__show_amount {
+	@apply absolute right-2 bottom-2 h-[34px];
+}
+
+.menu__show_amount_btn {
+	@apply w-[34px] h-[34px];
+}
+
+.menu__item_amount {
+	@apply flex gap-2 items-center bg-white rounded-full;
+}
+
+.menu__item_bottom {
+	@apply p-2;
+}
+
+.menu__item_name,
+.menu__item_price {
+	@apply lg:text-lg font-semibold text-orange-500;
+}
+
+.menu__item_description {
+	@apply text-sm lg:text-base;
 }
