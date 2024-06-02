@@ -1,6 +1,6 @@
 import { food_list } from '../../assets/assets';
 import MenuItem from './MenuItem';
-const MenuList = ({ activeItem }) => {
+const MenuList = ({ activeItem, ...orderProps }) => {
 	const filteredFoodList = food_list.filter(
 		(food) => activeItem === 'All' || activeItem === food.category
 	);
@@ -18,6 +18,7 @@ const MenuList = ({ activeItem }) => {
 										<MenuItem
 											key={menuItem._id}
 											menuItem={menuItem}
+											{...orderProps}
 										/>
 									);
 								}
