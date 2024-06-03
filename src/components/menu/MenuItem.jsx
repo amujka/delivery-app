@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { assets } from '../../assets/assets';
 
-const MenuItem = ({ menuItem, ...orderProps }) => {
+const MenuItem = ({ menuItem, amount = 0, ...orderProps }) => {
 	const [showAmount, setShowAmount] = useState(false);
 	return (
 		<li className='menu__item'>
@@ -16,10 +16,10 @@ const MenuItem = ({ menuItem, ...orderProps }) => {
 				<div className='menu__show_amount'>
 					{showAmount ? (
 						<div className='menu__item_amount'>
-							<button>
+							<button onClick={() => orderProps.onRemove(menuItem._id)}>
 								<img src={assets.remove_icon_red} alt='' />
 							</button>
-							{0}
+							{amount}
 							<button
 								className=''
 								onClick={() => orderProps.onOrder(menuItem._id)}

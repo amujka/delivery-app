@@ -12,14 +12,35 @@ const Menu = () => {
 
 	const [orderedItems, setOrderedItems] = useState([]);
 
-	const addItemHandler = (itemId) => {
-		const index = orderedItems.findIndex((item) => item.itemId === itemId);
-		console.log(index);
-		if (index === -1) {
+	const addToCartHandler = (itemId) => {
+		const existingItemIndex = orderedItems.findIndex(
+			(item) => item.itemId === itemId
+		);
+		if (existingItemIndex === -1) {
 			setOrderedItems([...orderedItems, { itemId, amount: 1 }]);
+		} else {
+			const copyOrderedItems = [...orderedItems];
+			copyOrderedItems[existingItemIndex].amount += 1;
+			setOrderedItems(copyOrderedItems);
 		}
 	};
-	console.log(orderedItems);
+	const removeFromCartHandler = (itemId) => {
+		const existingItemIndex = orderedItems.findIndex(
+			(item) => item.itemId === itemId
+		);
+		if (existingItemIndex !== -1) {
+			let copyOrderedItems = [...orderedItems];
+			if (copyOrderedItems[existingItemIndex].amount) {
+				copyOrderedItems[existingItemIndex].amount -= 1;
+			}
+			if (!copyOrderedItems[existingItemIndex].amount) {
+				copyOrderedItems = copyOrderedItems.filter(
+					(item) => item.itemId !== itemId
+				);
+			}
+			setOrderedItems(copyOrderedItems);
+		}
+	};
 	return (
 		<div className='menu'>
 			<h1 className='menu__title'>Explore our menu</h1>
@@ -41,7 +62,12 @@ const Menu = () => {
 					);
 				})}
 			</ul>
-			<MenuList activeItem={activeItem} onOrder={addItemHandler} />
+			<MenuList
+				activeItem={activeItem}
+				onOrder={addToCartHandler}
+				onRemove={removeFromCartHandler}
+				orderedItems={orderedItems}
+			/>
 		</div>
 	);
 };
