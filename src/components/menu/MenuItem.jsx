@@ -17,14 +17,14 @@ const MenuItem = ({ menuItem, amount = 0, ...orderProps }) => {
 					{showAmount ? (
 						<div className='menu__item_amount'>
 							<button onClick={() => orderProps.onRemove(menuItem._id)}>
-								<img src={assets.remove_icon_red} alt='' />
+								<img src={assets.remove_icon_red} alt='remove' />
 							</button>
 							{amount}
 							<button
 								className=''
 								onClick={() => orderProps.onOrder(menuItem._id)}
 							>
-								<img src={assets.add_icon_green} alt='' />
+								<img src={assets.add_icon_green} alt='add' />
 							</button>
 						</div>
 					) : (
@@ -32,7 +32,7 @@ const MenuItem = ({ menuItem, amount = 0, ...orderProps }) => {
 							className='menu__show_amount_btn'
 							onClick={() => setShowAmount((prev) => !prev)}
 						>
-							<img src={assets.add_icon_white} alt='add' />
+							<img src={assets.add_icon_white} alt='show' />
 						</button>
 					)}
 				</div>
