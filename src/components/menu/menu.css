@@ -14,7 +14,7 @@
 }
 
 .menu__category_list::-webkit-scrollbar {
-	@apply h-1;
+	@apply h-2;
 }
 
 .menu__category_list::-webkit-scrollbar-track {

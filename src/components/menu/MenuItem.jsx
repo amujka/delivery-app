@@ -1,29 +1,23 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { assets } from '../../assets/assets';
-
-const MenuItem = ({ menuItem, amount = 0, ...orderProps }) => {
+import { MenuContext } from '../../context/MenuContext';
+const MenuItem = ({ _id, name, image, description, price, quantity }) => {
 	const [showAmount, setShowAmount] = useState(false);
+	const { selectMenuItem } = useContext(MenuContext);
 	return (
 		<li className='menu__item'>
 			<div className='menu__item_top'>
 				<figure>
-					<img
-						className='menu__item_image'
-						src={menuItem.image}
-						alt={menuItem.name}
-					/>
+					<img className='menu__item_image' src={image} alt={name} />
 				</figure>
 				<div className='menu__show_amount'>
 					{showAmount ? (
 						<div className='menu__item_amount'>
-							<button onClick={() => orderProps.onRemove(menuItem._id)}>
+							<button onClick={() => selectMenuItem(_id, -1)}>
 								<img src={assets.remove_icon_red} alt='remove' />
 							</button>
-							{amount}
-							<button
-								className=''
-								onClick={() => orderProps.onOrder(menuItem._id)}
-							>
+							{quantity}
+							<button onClick={() => selectMenuItem(_id, 1)}>
 								<img src={assets.add_icon_green} alt='add' />
 							</button>
 						</div>
@@ -38,9 +32,9 @@ const MenuItem = ({ menuItem, amount = 0, ...orderProps }) => {
 				</div>
 			</div>
 			<div className='menu__item_bottom'>
-				<h3 className='menu__item_name'>{menuItem.name}</h3>
-				<p className='menu__item_description'>{menuItem.description}</p>
-				<p className='menu__item_price'>€ {menuItem.price}</p>
+				<h3 className='menu__item_name'>{name}</h3>
+				<p className='menu__item_description'>{description}</p>
+				<p className='menu__item_price'>€ {price}</p>
 			</div>
 		</li>
 	);

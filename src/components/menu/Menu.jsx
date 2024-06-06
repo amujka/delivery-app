@@ -5,42 +5,11 @@ import MenuCategory from './MenuCategory';
 import MenuList from './MenuList';
 
 const Menu = () => {
-	const [activeItem, setActiveItem] = useState('All');
+	const [selectedCategory, setSelectedCategory] = useState('All');
 	const onSelectItemHandler = (item) => {
-		setActiveItem(item);
+		setSelectedCategory(item);
 	};
-
-	const [orderedItems, setOrderedItems] = useState([]);
-
-	const addToCartHandler = (itemId) => {
-		const existingItemIndex = orderedItems.findIndex(
-			(item) => item.itemId === itemId
-		);
-		if (existingItemIndex === -1) {
-			setOrderedItems([...orderedItems, { itemId, amount: 1 }]);
-		} else {
-			const copyOrderedItems = [...orderedItems];
-			copyOrderedItems[existingItemIndex].amount += 1;
-			setOrderedItems(copyOrderedItems);
-		}
-	};
-	const removeFromCartHandler = (itemId) => {
-		const existingItemIndex = orderedItems.findIndex(
-			(item) => item.itemId === itemId
-		);
-		if (existingItemIndex !== -1) {
-			let copyOrderedItems = [...orderedItems];
-			if (copyOrderedItems[existingItemIndex].amount) {
-				copyOrderedItems[existingItemIndex].amount -= 1;
-			}
-			if (!copyOrderedItems[existingItemIndex].amount) {
-				copyOrderedItems = copyOrderedItems.filter(
-					(item) => item.itemId !== itemId
-				);
-			}
-			setOrderedItems(copyOrderedItems);
-		}
-	};
+	console.log('menu');
 	return (
 		<div className='menu'>
 			<h1 className='menu__title'>Explore our menu</h1>
@@ -51,23 +20,18 @@ const Menu = () => {
 				aliquam?
 			</p>
 			<ul className='menu__category_list'>
-				{menu_list.map((item) => {
+				{menu_list.map((category) => {
 					return (
 						<MenuCategory
-							key={item.menu_name}
-							item={item}
-							activeItemName={activeItem}
+							key={category.menu_name}
+							category={category}
+							selectedCategory={selectedCategory}
 							onSelect={onSelectItemHandler}
 						/>
 					);
 				})}
 			</ul>
-			<MenuList
-				activeItem={activeItem}
-				onOrder={addToCartHandler}
-				onRemove={removeFromCartHandler}
-				orderedItems={orderedItems}
-			/>
+			<MenuList selectedCategory={selectedCategory} />
 		</div>
 	);
 };

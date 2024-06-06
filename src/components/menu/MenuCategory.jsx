@@ -1,15 +1,15 @@
-const MenuCategory = ({ item, onSelect, activeItemName }) => {
+const MenuCategory = ({ category, onSelect, selectedCategory }) => {
 	return (
 		<li
 			className={`menu__category ${
-				activeItemName === item.menu_name ? 'active' : null
+				selectedCategory === category.menu_name ? 'active' : null
 			}`}
-			onClick={() => onSelect(item.menu_name)}
+			onClick={() => onSelect(category.menu_name)}
 		>
 			<figure>
-				<img src={item.menu_image} alt={item.menu_name} />
+				<img src={category.menu_image} alt={category.menu_name} />
 			</figure>
-			<p>{item.menu_name}</p>
+			<p>{category.menu_name}</p>
 		</li>
 	);
 };
