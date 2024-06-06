@@ -1,7 +1,6 @@
 import './header.css';
 import { assets } from '../../assets/assets';
 const Header = () => {
-	console.log('header');
 	return (
 		<header className='header'>
 			<img src={assets.header_img} alt='' className='header__background' />

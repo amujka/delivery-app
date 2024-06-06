@@ -9,7 +9,6 @@ const Menu = () => {
 	const onSelectItemHandler = (item) => {
 		setSelectedCategory(item);
 	};
-	console.log('menu');
 	return (
 		<div className='menu'>
 			<h1 className='menu__title'>Explore our menu</h1>

@@ -7,7 +7,6 @@ const MenuList = ({ selectedCategory }) => {
 		(food) => selectedCategory === 'All' || selectedCategory === food.category
 	);
 	const categories = [...new Set(filteredFoodList.map((item) => item.category))];
-	console.log('menu list');
 	const { items } = useContext(MenuContext);
 	const findItemAmount = (id) => {
 		return items.find((item) => item._id === id)?.quantity || 0;

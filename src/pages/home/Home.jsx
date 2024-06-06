@@ -5,7 +5,6 @@ import MenuContextProvider from '../../context/MenuContext';
 import './home.css';
 
 const Home = () => {
-	console.log('home');
 	return (
 		<div className='home'>
 			<MenuContextProvider>
