@@ -1,16 +1,16 @@
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
 import Menu from '../../components/menu/Menu';
-import MenuContextProvider from '../../context/MenuContext';
+import CartContextProvider from '../../context/CartContext';
 import './home.css';
 
 const Home = () => {
 	return (
 		<div className='home'>
-			<MenuContextProvider>
+			<CartContextProvider>
 				<Header />
 				<Menu />
-			</MenuContextProvider>
+			</CartContextProvider>
 			<Footer />
 		</div>
 	);

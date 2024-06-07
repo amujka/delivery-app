@@ -1,13 +1,13 @@
 import { food_list } from '../../assets/assets';
 import { useContext } from 'react';
-import { MenuContext } from '../../context/MenuContext';
+import { CartContext } from '../../context/CartContext';
 import MenuItem from './MenuItem';
 const MenuList = ({ selectedCategory }) => {
 	const filteredFoodList = food_list.filter(
 		(food) => selectedCategory === 'All' || selectedCategory === food.category
 	);
 	const categories = [...new Set(filteredFoodList.map((item) => item.category))];
-	const { items } = useContext(MenuContext);
+	const { items } = useContext(CartContext);
 	const findItemAmount = (id) => {
 		return items.find((item) => item._id === id)?.quantity || 0;
 	};

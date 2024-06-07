@@ -1,9 +1,9 @@
 import { useState, useContext } from 'react';
 import { assets } from '../../assets/assets';
-import { MenuContext } from '../../context/MenuContext';
+import { CartContext } from '../../context/CartContext';
 const MenuItem = ({ _id, name, image, description, price, quantity }) => {
 	const [showAmount, setShowAmount] = useState(false);
-	const { selectMenuItem } = useContext(MenuContext);
+	const { addToCart } = useContext(CartContext);
 	return (
 		<li className='menu__item'>
 			<div className='menu__item_top'>
@@ -13,11 +13,14 @@ const MenuItem = ({ _id, name, image, description, price, quantity }) => {
 				<div className='menu__show_amount'>
 					{showAmount ? (
 						<div className='menu__item_amount'>
-							<button onClick={() => selectMenuItem(_id, -1)}>
+							<button
+								onClick={() => addToCart(_id, -1)}
+								disabled={!quantity}
+							>
 								<img src={assets.remove_icon_red} alt='remove' />
 							</button>
 							{quantity}
-							<button onClick={() => selectMenuItem(_id, 1)}>
+							<button onClick={() => addToCart(_id, 1)}>
 								<img src={assets.add_icon_green} alt='add' />
 							</button>
 						</div>
