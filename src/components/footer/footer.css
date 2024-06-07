@@ -1,12 +1,14 @@
 footer {
 	@apply bg-[#6b7280] text-white;
 }
+
 .footer__container {
 	@apply max-w-7xl mx-auto flex flex-col gap-5  p-4 lg:flex-row lg:justify-between;
 }
+
 .footer__about_us,
 .footer__contact {
-	@apply flex flex-col  items-center lg:items-start;
+	@apply flex flex-col items-center lg:items-start;
 }
 
 .footer__about_us {

@@ -83,7 +83,7 @@
 }
 
 .menu__show_amount {
-	@apply absolute right-2 bottom-2 h-[34px];
+	@apply absolute right-2 bottom-3 h-[34px];
 }
 
 .menu__show_amount_btn {

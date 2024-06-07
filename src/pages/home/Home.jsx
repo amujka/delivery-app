@@ -6,10 +6,8 @@ import './home.css';
 const Home = () => {
 	return (
 		<div className='home'>
-			<CartContextProvider>
-				<Header />
-				<Menu />
-			</CartContextProvider>
+			<Header />
+			<Menu />
 		</div>
 	);
 };

@@ -1,5 +1,5 @@
 .navbar {
-	@apply flex justify-between items-center py-5;
+	@apply flex justify-between items-center p-5;
 }
 
 .navbar__logo {
@@ -20,4 +20,12 @@
 
 .navbar__icons_wrap button {
 	@apply shrink-0 py-1 md:py-2.5 px-2 md:px-7 text-xs border border-gray-500 lg:hover:border-orange-500 lg:hover:text-orange-500 rounded-full;
+}
+
+.navbar__cart {
+	@apply relative cursor-pointer;
+}
+
+.navbar__cart span {
+	@apply absolute -top-1 left-full w-2 h-2 bg-orange-500 rounded-full;
 }
