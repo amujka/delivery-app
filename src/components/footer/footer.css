@@ -1,0 +1,30 @@
+footer {
+	@apply bg-[#6b7280] text-white;
+}
+.footer__container {
+	@apply max-w-7xl mx-auto flex flex-col gap-5  p-4 lg:flex-row lg:justify-between;
+}
+.footer__about_us,
+.footer__contact {
+	@apply flex flex-col  items-center lg:items-start;
+}
+
+.footer__about_us {
+	@apply gap-4 text-center lg:basis-1/2 lg:text-start;
+}
+
+.footer__contact {
+	@apply gap-2;
+}
+
+.footer__contact h3 {
+	@apply font-bold text-2xl;
+}
+
+.footer__contact span {
+	@apply font-semibold text-orange-500;
+}
+
+.footer__socials {
+	@apply flex gap-4 w-fit;
+}

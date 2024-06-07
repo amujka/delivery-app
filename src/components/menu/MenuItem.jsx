@@ -12,14 +12,14 @@ const MenuItem = ({ _id, name, image, description, price, quantity }) => {
 				</figure>
 				<div className='menu__show_amount'>
 					{showAmount ? (
-						<div className='menu__item_amount'>
+						<div className='menu__item_btns_wrap'>
 							<button
 								onClick={() => addToCart(_id, -1)}
 								disabled={!quantity}
 							>
 								<img src={assets.remove_icon_red} alt='remove' />
 							</button>
-							{quantity}
+							<span className='menu__item_amount'>{quantity}</span>
 							<button onClick={() => addToCart(_id, 1)}>
 								<img src={assets.add_icon_green} alt='add' />
 							</button>

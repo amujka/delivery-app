@@ -1,5 +1,5 @@
 .menu {
-	@apply flex flex-col gap-5 border-b border-gray-500 pb-10;
+	@apply flex flex-col gap-5 pb-10;
 }
 .menu__title {
 	@apply text-3xl font-semibold text-black;
@@ -90,8 +90,12 @@
 	@apply w-[34px] h-[34px];
 }
 
+.menu__item_btns_wrap {
+	@apply flex gap-2 items-center p-1 bg-white rounded-full;
+}
+
 .menu__item_amount {
-	@apply flex gap-2 items-center bg-white rounded-full;
+	@apply w-5 text-center;
 }
 
 .menu__item_bottom {
