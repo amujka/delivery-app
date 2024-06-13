@@ -21,7 +21,7 @@ const MenuList = ({ selectedCategory }) => {
 							{filteredFoodList.map((foodItem) => {
 								return foodItem.category === category ? (
 									<MenuItem
-										{...foodItem}
+										item={foodItem}
 										quantity={findItemAmount(foodItem._id)}
 										key={foodItem._id}
 									/>

@@ -8,9 +8,9 @@ const Navbar = () => {
 	const cartModal = useRef();
 
 	const showModalHandler = () => {
-		console.log('hello world');
-		cartModal.current.showModal();
+		cartModal.current.openModal();
 	};
+
 	return (
 		<>
 			<nav className='navbar'>
@@ -39,7 +39,7 @@ const Navbar = () => {
 					<button>sign in</button>
 				</div>
 			</nav>
-			<CartModal ref={cartModal} />
+			<CartModal ref={cartModal} items={items}/>
 		</>
 	);
 };

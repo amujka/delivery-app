@@ -7,10 +7,10 @@ export const CartContext = createContext({
 
 export default function CartContextProvider({ children }) {
 	const [cartItems, setCartItems] = useState([]);
-	const addToCartHandler = (itemId, amount) => {
+	const addToCartHandler = (cartItem, amount) => {
 		let updatedCartItems = [...cartItems];
 		const existingSelectedMenuItemIndex = updatedCartItems.findIndex(
-			(item) => item._id === itemId
+			(item) => item._id === cartItem._id
 		);
 		const existingSelectedMenuItem = updatedCartItems[existingSelectedMenuItemIndex];
 		if (existingSelectedMenuItem) {
@@ -22,7 +22,7 @@ export default function CartContextProvider({ children }) {
 				updatedCartItems.splice(existingSelectedMenuItemIndex, 1);
 			}
 		} else {
-			updatedCartItems.push({ _id: itemId, quantity: 1 });
+			updatedCartItems.push({ ...cartItem, quantity: 1 });
 		}
 
 		setCartItems(updatedCartItems);
