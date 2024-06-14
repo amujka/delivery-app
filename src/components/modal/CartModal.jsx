@@ -2,7 +2,7 @@ import { createPortal } from 'react-dom';
 import { assets } from '../../assets/assets';
 import './cartModal.css';
 import { forwardRef, useRef, useImperativeHandle } from 'react';
-const CartModal = forwardRef(({ items }, ref) => {
+const CartModal = forwardRef(({ items, addToCart }, ref) => {
 	const cartModal = useRef();
 	useImperativeHandle(
 		ref,
@@ -42,9 +42,19 @@ const CartModal = forwardRef(({ items }, ref) => {
 										{item.name} (€ {item.price}):
 									</span>
 									<div className='cart_modal__amount'>
-										<span className='cart_modal__plus'>+</span>
+										<span
+											className='cart_modal__plus'
+											onClick={() => addToCart(item, 1)}
+										>
+											+
+										</span>
 										<span>{item.quantity}</span>
-										<span className='cart_modal__minus'>-</span>
+										<span
+											className='cart_modal__minus'
+											onClick={() => addToCart(item, -1)}
+										>
+											-
+										</span>
 									</div>
 								</div>
 							);

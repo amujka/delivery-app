@@ -2,7 +2,7 @@
 	@apply flex flex-col gap-5 pb-10;
 }
 .menu__title {
-	@apply text-3xl font-semibold text-black;
+	@apply text-3xl font-semibold text-orange-500;
 }
 
 .menu__subtitle {
@@ -63,7 +63,7 @@
 }
 
 .menu__item {
-	@apply basis-[calc(50%-4px)] bg-white md:basis-[calc((100%-24px)/3)] lg:basis-[calc(25%-15px)] shadow-sm;
+	@apply basis-[calc(50%-4px)]  md:basis-[calc((100%-24px)/3)] lg:basis-[calc(25%-15px)] shadow-sm;
 }
 
 .menu__item figure {
@@ -95,7 +95,7 @@
 }
 
 .menu__item_amount {
-	@apply w-5 text-center;
+	@apply w-5 text-center text-slate-500;
 }
 
 .menu__item_bottom {

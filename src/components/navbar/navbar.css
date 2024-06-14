@@ -1,13 +1,17 @@
 .navbar {
-	@apply flex justify-between items-center p-5;
+	@apply fixed top-0 z-30 flex justify-between items-center w-full p-5 bg-white shadow-lg;
+}
+
+.app.light .navbar {
+	@apply bg-white;
+}
+
+.app.dark .navbar {
+	@apply bg-slate-800;
 }
 
 .navbar__logo {
 	@apply w-24 md:w-40;
-}
-
-.navbar__menu {
-	@apply hidden md:flex gap-5 text-gray-500 text-lg font-medium;
 }
 
 .navbar__icons_wrap {
@@ -15,11 +19,11 @@
 }
 
 .navbar__icon {
-	@apply w-5 h-5;
+	@apply w-5 h-5 text-red-300;
 }
 
 .navbar__icons_wrap button {
-	@apply shrink-0 py-1 md:py-2.5 px-2 md:px-7 text-xs border border-gray-500 lg:hover:border-orange-500 lg:hover:text-orange-500 rounded-full;
+	@apply hidden lg:block shrink-0 py-1 md:py-2.5 px-2 md:px-7 text-xs border border-gray-500 lg:hover:border-orange-500 lg:hover:text-orange-500 rounded-full;
 }
 
 .navbar__cart {
@@ -28,4 +32,38 @@
 
 .navbar__cart span {
 	@apply absolute -top-1 left-full w-2 h-2 bg-orange-500 rounded-full;
+}
+
+.navbar__theme_btn {
+	@apply relative w-5 h-5 rounded-full  cursor-pointer blur-[1px]  lg:w-10 lg:h-10;
+}
+
+.app.light .navbar__theme_btn {
+	@apply bg-yellow-500 animate-[light_4s_ease-in-out_infinite];
+}
+
+.app.dark .navbar__theme_btn {
+	@apply bg-slate-200 animate-[dark_4s_ease-in-out_infinite];
+}
+
+.navbar__theme_btn::before {
+	@apply content-[''] absolute top-3 left-3  w-[2px] h-[2px] bg-black;
+}
+
+.navbar__theme_btn::after {
+	@apply content-[''] absolute top-3 right-3 w-[2px] h-[2px] bg-black;
+}
+
+@keyframes light {
+	50% {
+		box-shadow: 0 0 2px rgb(234 179 8), 0 0 6px rgb(234 179 8),
+			0 0 25px rgb(234 179 8);
+	}
+}
+
+@keyframes dark {
+	50% {
+		box-shadow: 0 0 2px rgb(226 232 240), 0 0 6px rgb(226 232 240),
+			0 0 25px rgb(226 232 240);
+	}
 }

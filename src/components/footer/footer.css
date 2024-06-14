@@ -1,5 +1,13 @@
 footer {
-	@apply bg-[#6b7280] text-white;
+	@apply text-white;
+}
+
+.app.light footer {
+	@apply bg-[#6b7280];
+}
+
+.app.dark footer {
+	@apply bg-slate-800;
 }
 
 .footer__container {

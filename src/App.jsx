@@ -6,12 +6,17 @@ import Footer from './components/footer/Footer';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import CartContextProvider from './context/CartContext';
+import { ThemeContext } from './context/ThemeContext';
+import { useContext } from 'react';
 const App = () => {
+	const { theme } = useContext(ThemeContext);
+
+	const appClass = `app ${theme}`;
 	return (
-		<>
+		<div className={appClass}>
 			<CartContextProvider>
 				<Navbar />
-				<div className='app'>
+				<div className='container'>
 					<Routes>
 						<Route exact path='/' element={<Home />} />
 						<Route path='/cart' element={<Cart />} />
@@ -20,7 +25,7 @@ const App = () => {
 				</div>
 			</CartContextProvider>
 			<Footer />
-		</>
+		</div>
 	);
 };
 
