@@ -30,7 +30,12 @@ const Navbar = () => {
 					<button>sign in</button>
 				</div>
 			</nav>
-			<CartModal ref={cartModal} items={items} addToCart={addToCart} />
+			<CartModal
+				ref={cartModal}
+				items={items}
+				addToCart={addToCart}
+				theme={theme}
+			/>
 		</>
 	);
 };

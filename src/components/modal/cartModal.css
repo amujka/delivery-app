@@ -1,5 +1,13 @@
 .cart_modal {
-	@apply fixed left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-30 w-11/12 max-w-[400px] rounded-md bg-white;
+	@apply fixed left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-30 w-11/12 max-w-[400px] rounded-md;
+}
+
+.cart_modal--light {
+	@apply bg-white;
+}
+
+.cart_modal--dark {
+	@apply bg-slate-800 text-white;
 }
 
 .cart_modal__container {
@@ -27,7 +35,15 @@
 }
 
 .cart_modal__item {
-	@apply flex justify-between items-center bg-orange-100 rounded-md px-4 py-2;
+	@apply flex justify-between items-center rounded-md px-4 py-2;
+}
+
+.cart_modal--light .cart_modal__item {
+	@apply bg-orange-100;
+}
+
+.cart_modal--dark .cart_modal__item {
+	@apply bg-orange-300;
 }
 
 .cart_modal__amount {
@@ -36,7 +52,7 @@
 
 .cart_modal__plus,
 .cart_modal__minus {
-	@apply flex items-center justify-center h-6 w-6 bg-white rounded-full cursor-pointer;
+	@apply flex items-center justify-center h-6 w-6 bg-white rounded-full cursor-pointer text-slate-900;
 }
 
 .cart_modal__total {

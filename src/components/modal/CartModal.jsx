@@ -2,7 +2,7 @@ import { createPortal } from 'react-dom';
 import { assets } from '../../assets/assets';
 import './cartModal.css';
 import { forwardRef, useRef, useImperativeHandle } from 'react';
-const CartModal = forwardRef(({ items, addToCart }, ref) => {
+const CartModal = forwardRef(({ items, addToCart, theme }, ref) => {
 	const cartModal = useRef();
 	useImperativeHandle(
 		ref,
@@ -24,7 +24,7 @@ const CartModal = forwardRef(({ items, addToCart }, ref) => {
 	}, 0);
 
 	return createPortal(
-		<dialog ref={cartModal} className='cart_modal'>
+		<dialog ref={cartModal} className={`cart_modal cart_modal--${theme}`}>
 			<div className='cart_modal__container'>
 				<div className='cart_modal__header'>
 					<h3 className='cart_modal__caption'>Your cart</h3>
