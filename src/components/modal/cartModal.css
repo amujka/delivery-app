@@ -52,7 +52,7 @@
 
 .cart_modal__plus,
 .cart_modal__minus {
-	@apply flex items-center justify-center h-6 w-6 bg-white rounded-full cursor-pointer text-slate-900;
+	@apply flex items-center justify-center h-6 w-6 leading-[1] bg-white rounded-full cursor-pointer text-slate-900;
 }
 
 .cart_modal__total {
