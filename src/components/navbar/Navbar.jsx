@@ -1,11 +1,11 @@
 import './navbar.css';
 import { assets } from '../../assets/assets';
 import { useContext, useRef } from 'react';
-import { CartContext } from '../../context/CartContext';
+
 import { ThemeContext } from '../../context/ThemeContext';
-import CartModal from '../modal//CartModal';
+import CartModal from '../modal/CartModal';
+import Cart from '../cart/Cart';
 const Navbar = () => {
-	const { items, addToCart } = useContext(CartContext);
 	const { toggleTheme, theme } = useContext(ThemeContext);
 	const cartModal = useRef();
 
@@ -25,17 +25,14 @@ const Navbar = () => {
 							src={assets.basket_icon}
 							alt='cart'
 						/>
-						{items.length > 0 && <span></span>}
+						{/* {items.length > 0 && <span></span>} */}
 					</div>
 					<button>sign in</button>
 				</div>
 			</nav>
-			<CartModal
-				ref={cartModal}
-				items={items}
-				addToCart={addToCart}
-				theme={theme}
-			/>
+			<CartModal ref={cartModal} theme={theme} modalTitle='Your cart'>
+				<Cart />
+			</CartModal>
 		</>
 	);
 };
