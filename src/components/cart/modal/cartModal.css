@@ -1,0 +1,68 @@
+.cart_modal {
+	@apply fixed left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-30 w-11/12 max-w-[400px] rounded-md;
+}
+
+.cart_modal--light {
+	@apply bg-white;
+}
+
+.cart_modal--dark {
+	@apply bg-slate-800 text-white;
+}
+
+.cart_modal__container {
+	@apply flex flex-col gap-4 p-4;
+}
+
+.cart_modal__header {
+	@apply flex justify-between items-center;
+}
+
+.cart_modal__header button {
+	@apply outline-none;
+}
+
+.cart_modal::backdrop {
+	@apply bg-black/50;
+}
+
+.cart_modal__caption {
+	@apply text-2xl font-medium text-orange-500;
+}
+
+.cart_modal__item_list {
+	@apply flex flex-col gap-2;
+}
+
+.cart_modal__item {
+	@apply flex justify-between items-center rounded-md px-4 py-2;
+}
+
+.cart_modal--light .cart_modal__item {
+	@apply bg-orange-100;
+}
+
+.cart_modal--dark .cart_modal__item {
+	@apply bg-orange-300;
+}
+
+.cart_modal__amount {
+	@apply flex gap-2 items-center;
+}
+
+.cart_modal__plus,
+.cart_modal__minus {
+	@apply flex items-center justify-center h-6 w-6 leading-[1] bg-white rounded-full cursor-pointer text-slate-900;
+}
+
+.cart_modal__total {
+	@apply text-lg text-right underline font-medium;
+}
+
+.cart_modal__btns_wrap {
+	@apply flex justify-between text-sm;
+}
+
+.cart_modal__btns_wrap button {
+	@apply outline-none transition-colors duration-200 disabled:text-gray-500 hover:text-orange-500;
+}
