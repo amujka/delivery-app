@@ -4,15 +4,17 @@ import { useContext, useRef } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { ThemeContext } from '../../context/ThemeContext';
 import CartModal from '../cart/modal/CartModal';
+import RegistrationModal from '../registration/modal/RegistrationModal';
 const Navbar = () => {
 	const { items, addToCart } = useContext(CartContext);
 	const { toggleTheme, theme } = useContext(ThemeContext);
+
 	const cartModal = useRef();
+	const registrationModal = useRef();
 
 	const showModalHandler = () => {
 		cartModal.current.openModal();
 	};
-
 	return (
 		<>
 			<nav className='navbar'>
@@ -36,6 +38,7 @@ const Navbar = () => {
 				addToCart={addToCart}
 				theme={theme}
 			/>
+			<RegistrationModal ref={registrationModal} theme={theme} />
 		</>
 	);
 };
