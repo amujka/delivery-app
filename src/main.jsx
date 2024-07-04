@@ -6,13 +6,13 @@ import { BrowserRouter } from 'react-router-dom';
 import ThemeContextProvider from './context/ThemeContext.jsx';
 
 import { Provider } from 'react-redux';
-import cartStore from './store/cartStore.js';
+import store from './store/store.js';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>
 		<ThemeContextProvider>
 			<BrowserRouter>
-				<Provider store={cartStore}>
+				<Provider store={store}>
 					<App />
 				</Provider>
 			</BrowserRouter>
