@@ -6,7 +6,6 @@ const RegistrationModal = forwardRef(({ theme }, ref) => {
 	const registrationModal = useRef();
 	return createPortal(
 		<dialog
-			open
 			ref={registrationModal}
 			className={`registration_modal registration_modal--${theme}`}
 		>

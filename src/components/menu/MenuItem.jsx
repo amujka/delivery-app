@@ -1,9 +1,18 @@
 import { useState, useContext } from 'react';
 import { assets } from '../../assets/assets';
 import { CartContext } from '../../context/CartContext';
-const MenuItem = ({item,quantity}) => {
+import { useDispatch } from 'react-redux';
+const MenuItem = ({ item, quantity }) => {
 	const [showAmount, setShowAmount] = useState(false);
 	const { addToCart } = useContext(CartContext);
+	const dispatch = useDispatch();
+
+	const addItemHandler = (item) => {
+		dispatch({ type: 'ADD_ITEM', item });
+	};
+	const removeItemHandler = (item) => {
+		dispatch({ type: 'ITEM_ITEM', item });
+	};
 	return (
 		<li className='menu__item'>
 			<div className='menu__item_top'>
@@ -14,13 +23,13 @@ const MenuItem = ({item,quantity}) => {
 					{showAmount ? (
 						<div className='menu__item_btns_wrap'>
 							<button
-								onClick={() => addToCart(item, -1)}
+								onClick={() => removeItemHandler(item)}
 								disabled={!quantity}
 							>
 								<img src={assets.remove_icon_red} alt='remove' />
 							</button>
 							<span className='menu__item_amount'>{quantity}</span>
-							<button onClick={() => addToCart(item, 1)}>
+							<button onClick={() => addItemHandler(item)}>
 								<img src={assets.add_icon_green} alt='add' />
 							</button>
 						</div>
