@@ -1,17 +1,17 @@
 import './navbar.css';
 import { assets } from '../../assets/assets';
 import { useContext, useRef } from 'react';
-import { CartContext } from '../../context/CartContext';
+import { useSelector } from 'react-redux';
 import { ThemeContext } from '../../context/ThemeContext';
 import CartModal from '../cart/modal/CartModal';
 import RegistrationModal from '../registration/modal/RegistrationModal';
+
 const Navbar = () => {
-	const { items, addToCart } = useContext(CartContext);
 	const { toggleTheme, theme } = useContext(ThemeContext);
 
 	const cartModal = useRef();
 	const registrationModal = useRef();
-
+	const items = useSelector((state) => state.cart.items);
 	const showModalHandler = () => {
 		cartModal.current.openModal();
 	};
@@ -32,12 +32,7 @@ const Navbar = () => {
 					<button>sign in</button>
 				</div>
 			</nav>
-			<CartModal
-				ref={cartModal}
-				items={items}
-				addToCart={addToCart}
-				theme={theme}
-			/>
+			<CartModal ref={cartModal} items={items} theme={theme} />
 			<RegistrationModal ref={registrationModal} theme={theme} />
 		</>
 	);

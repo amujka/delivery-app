@@ -1,4 +1,4 @@
-import { createSlice, configureStore } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
 	items: [
 		{
@@ -12,7 +12,6 @@ const initialState = {
 			quantity: 3,
 		},
 	],
-	korisnik: 'Alen Mujkanovic',
 };
 
 const cartSlice = createSlice({
@@ -20,7 +19,7 @@ const cartSlice = createSlice({
 	initialState,
 	reducers: {
 		addItem(state, action) {
-			state.items.push(action.item);
+			state.items.push(action.payload);
 		},
 		removeItem(state) {
 			state.items[0].quantity--;

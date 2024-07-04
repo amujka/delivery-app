@@ -1,6 +1,4 @@
 import { food_list } from '../../assets/assets';
-import { useContext } from 'react';
-import { CartContext } from '../../context/CartContext';
 import { useSelector } from 'react-redux';
 import MenuItem from './MenuItem';
 const MenuList = ({ selectedCategory }) => {
@@ -8,9 +6,7 @@ const MenuList = ({ selectedCategory }) => {
 		(food) => selectedCategory === 'All' || selectedCategory === food.category
 	);
 	const categories = [...new Set(filteredFoodList.map((item) => item.category))];
-	//const { items } = useContext(CartContext);
-	const items = useSelector((state) => state.items);
-	console.log(items);
+	const items = useSelector((state) => state.cart.items);
 	const findItemAmount = (id) => {
 		return items.find((item) => item._id === id)?.quantity || 0;
 	};

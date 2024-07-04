@@ -46,14 +46,6 @@
 	@apply bg-slate-200 animate-[dark_4s_ease-in-out_infinite];
 }
 
-.navbar__theme_btn::before {
-	@apply content-[''] absolute top-3 left-3  w-[2px] h-[2px] bg-black;
-}
-
-.navbar__theme_btn::after {
-	@apply content-[''] absolute top-3 right-3 w-[2px] h-[2px] bg-black;
-}
-
 @keyframes light {
 	50% {
 		box-shadow: 0 0 2px rgb(234 179 8), 0 0 6px rgb(234 179 8),
