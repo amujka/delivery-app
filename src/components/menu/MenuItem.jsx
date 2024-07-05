@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { assets } from '../../assets/assets';
-import { addItem, removeItem } from '../../store/cartStore';
+import { addItem, removeItem } from '../../store/cartSlice';
 import { useDispatch } from 'react-redux';
 const MenuItem = ({ item, quantity }) => {
 	const [showAmount, setShowAmount] = useState(false);
@@ -9,8 +9,8 @@ const MenuItem = ({ item, quantity }) => {
 	const addItemHandler = (item) => {
 		dispatch(addItem(item));
 	};
-	const removeItemHandler = () => {
-		dispatch(removeItem());
+	const removeItemHandler = (id) => {
+		dispatch(removeItem(id));
 	};
 	return (
 		<li className='menu__item'>
@@ -22,7 +22,7 @@ const MenuItem = ({ item, quantity }) => {
 					{showAmount ? (
 						<div className='menu__item_btns_wrap'>
 							<button
-								onClick={() => removeItemHandler()}
+								onClick={() => removeItemHandler(item._id)}
 								disabled={!quantity}
 							>
 								<img src={assets.remove_icon_red} alt='remove' />

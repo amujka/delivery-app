@@ -1,8 +1,10 @@
 import { createPortal } from 'react-dom';
 import { assets } from '../../../assets/assets';
+import { useDispatch } from 'react-redux';
+import { addItem, removeItem } from '../../../store/cartSlice';
 import './cartModal.css';
 import { forwardRef, useRef, useImperativeHandle } from 'react';
-const CartModal = forwardRef(({ items, addToCart, theme }, ref) => {
+const CartModal = forwardRef(({ items, theme }, ref) => {
 	const cartModal = useRef();
 	useImperativeHandle(
 		ref,
@@ -18,6 +20,15 @@ const CartModal = forwardRef(({ items, addToCart, theme }, ref) => {
 		},
 		[]
 	);
+
+	const dispatch = useDispatch();
+
+	const addItemHandler = (item) => {
+		dispatch(addItem(item));
+	};
+	const removeItemHandler = (id) => {
+		dispatch(removeItem(id));
+	};
 
 	const totalPrice = items.reduce((total, item) => {
 		return total + item.price * item.quantity;
@@ -44,14 +55,14 @@ const CartModal = forwardRef(({ items, addToCart, theme }, ref) => {
 									<div className='cart_modal__amount'>
 										<span
 											className='cart_modal__plus'
-											onClick={() => addToCart(item, 1)}
+											onClick={() => addItemHandler(item)}
 										>
 											+
 										</span>
 										<span>{item.quantity}</span>
 										<span
 											className='cart_modal__minus'
-											onClick={() => addToCart(item, -1)}
+											onClick={() => removeItemHandler(item._id)}
 										>
 											-
 										</span>
