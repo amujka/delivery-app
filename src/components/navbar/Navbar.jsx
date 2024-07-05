@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { ThemeContext } from '../../context/ThemeContext';
 import CartModal from '../cart/modal/CartModal';
 import RegistrationModal from '../registration/modal/RegistrationModal';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 	const { toggleTheme, theme } = useContext(ThemeContext);
@@ -12,16 +13,21 @@ const Navbar = () => {
 	const cartModal = useRef();
 	const registrationModal = useRef();
 	const items = useSelector((state) => state.cart.items);
-	const showModalHandler = () => {
+	const showCartModalHandler = () => {
 		cartModal.current.openModal();
+	};
+	const showRegistrationModalHandler = () => {
+		registrationModal.current.openModal();
 	};
 	return (
 		<>
 			<nav className='navbar'>
-				<img className='navbar__logo' src={assets.logo} alt='logo' />
+				<Link to={'/'}>
+					<img className='navbar__logo' src={assets.logo} alt='logo' />
+				</Link>
 				<div className='navbar__icons_wrap'>
 					<div className='navbar__theme_btn' onClick={toggleTheme}></div>
-					<div className='navbar__cart' onClick={showModalHandler}>
+					<div className='navbar__cart' onClick={showCartModalHandler}>
 						<img
 							className='navbar__icon'
 							src={assets.basket_icon}
@@ -29,7 +35,7 @@ const Navbar = () => {
 						/>
 						{items.length > 0 && <span></span>}
 					</div>
-					<button>sign in</button>
+					<button onClick={showRegistrationModalHandler}>sign in</button>
 				</div>
 			</nav>
 			<CartModal ref={cartModal} items={items} theme={theme} />

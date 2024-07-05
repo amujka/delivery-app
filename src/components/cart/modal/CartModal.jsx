@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addItem, removeItem } from '../../../store/cartSlice';
 import './cartModal.css';
 import { forwardRef, useRef, useImperativeHandle } from 'react';
+import { useNavigate } from 'react-router-dom';
 const CartModal = forwardRef(({ items, theme }, ref) => {
 	const cartModal = useRef();
 	useImperativeHandle(
@@ -28,6 +29,12 @@ const CartModal = forwardRef(({ items, theme }, ref) => {
 	};
 	const removeItemHandler = (id) => {
 		dispatch(removeItem(id));
+	};
+
+	const navigate = useNavigate();
+	const navigateToCheckoutHandler = () => {
+		cartModal.current.close();
+		navigate('/checkout');
 	};
 
 	const totalPrice = items.reduce((total, item) => {
@@ -76,7 +83,9 @@ const CartModal = forwardRef(({ items, theme }, ref) => {
 					<button onClick={() => cartModal.current.close()}>
 						Continue shopping
 					</button>
-					<button disabled={!items.length}>Checkout</button>
+					<button disabled={!items.length} onClick={navigateToCheckoutHandler}>
+						Checkout
+					</button>
 				</div>
 			</div>
 		</dialog>,
