@@ -55,7 +55,7 @@
 }
 
 .menu__list {
-	@apply flex flex-wrap gap-2 md:gap-3 lg:gap-5;
+	@apply flex flex-wrap gap-2 md:gap-3;
 }
 
 .menu__category_name {
@@ -63,13 +63,15 @@
 }
 
 .menu__item {
-	@apply basis-[calc(50%-4px)]  md:basis-[calc((100%-24px)/3)] lg:basis-[calc(25%-15px)] shadow-sm;
+	@apply basis-[calc(50%-4px)]  md:basis-[calc((100%-36px)/4)] shadow-sm;
 }
 
 .menu__item figure {
 	@apply rounded-t-md overflow-hidden;
 }
-
+.menu__item_image {
+	@apply w-full;
+}
 .menu__item:hover .menu__item_image {
 	@apply scale-[1.1];
 }
