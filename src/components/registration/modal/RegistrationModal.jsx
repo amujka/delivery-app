@@ -1,4 +1,4 @@
-import { useImperativeHandle, forwardRef, useRef } from 'react';
+import { useImperativeHandle, forwardRef, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import '../registration.css';
 import { assets } from '../../../assets/assets';
@@ -15,6 +15,9 @@ const RegistrationModal = forwardRef(({ theme }, ref) => {
 		};
 	});
 
+	const [userData, setUserData] = useState({ email: '', password: '' });
+	const [accountExist, setAccountExist] = useState(false);
+
 	return createPortal(
 		<dialog
 			ref={registrationModal}
@@ -22,18 +25,36 @@ const RegistrationModal = forwardRef(({ theme }, ref) => {
 		>
 			<div className='registration_modal__container'>
 				<div className='registration_modal__header'>
-					<h3 className='registration_modal__caption'>Sign up</h3>
+					<h3 className='registration_modal__caption'>
+						{accountExist && 'Login'}
+						{!accountExist && 'Sign up'}
+					</h3>
 					<button onClick={() => registrationModal.current.close()}>
 						<img src={assets.cross_icon} alt='x' />
 					</button>
 				</div>
-				<input type='text' name='name' placeholder='name' />
+
 				<input type='email' name='email' placeholder='email' />
 				<input type='text' name='password' placeholder='password' />
-				<button className='registration_modal__submit'>Create account</button>
-				<small>
-					Already have an account? <span>Login here</span>
-				</small>
+				<button className='registration_modal__submit'>
+					{accountExist ? 'Login' : 'Create account'}
+				</button>
+				{accountExist && (
+					<small>
+						Don't have an account?{' '}
+						<button onClick={() => setAccountExist((prev) => !prev)}>
+							<span>Sign up here</span>
+						</button>
+					</small>
+				)}
+				{!accountExist && (
+					<small>
+						Already have an account?{' '}
+						<button onClick={() => setAccountExist((prev) => !prev)}>
+							<span>Login here</span>
+						</button>
+					</small>
+				)}
 			</div>
 		</dialog>,
 		document.getElementById('modal')

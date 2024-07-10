@@ -35,7 +35,7 @@ const Navbar = () => {
 						/>
 						{items.length > 0 && <span></span>}
 					</div>
-					<button onClick={showRegistrationModalHandler}>sign in</button>
+					<button onClick={showRegistrationModalHandler}>login</button>
 				</div>
 			</nav>
 			<CartModal ref={cartModal} items={items} theme={theme} />

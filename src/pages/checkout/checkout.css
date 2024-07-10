@@ -1,6 +1,6 @@
 .checkout {
 	@apply max-w-7xl pb-10 mx-auto;
-	@apply lg:px-4;
+	@apply md:px-4;
 }
 .checkout__title {
 	@apply text-3xl font-bold;
@@ -8,12 +8,12 @@
 
 .checkout__details_wrapper {
 	@apply flex flex-col gap-4 mt-4;
-	@apply lg:flex-row lg:gap-10 lg:justify-between;
+	@apply md:flex-row md:gap-10 md:justify-between;
 }
 
 .checkout__delivery_details,
 .checkout__cart_details {
-	@apply lg:basis-1/2;
+	@apply md:basis-1/2;
 }
 
 .checkout__delivery_details h2,
@@ -26,7 +26,7 @@ form {
 
 .checkout__input_wrapper {
 	@apply flex flex-col gap-2;
-	@apply lg:flex-row;
+	@apply md:flex-row;
 }
 
 form input {
