@@ -39,7 +39,7 @@
 }
 
 .registration_modal__submit {
-	@apply px-4 py-2 outline-none rounded bg-orange-500 text-white;
+	@apply px-4 py-2 outline-none rounded bg-orange-500 text-white disabled:bg-gray-500;
 }
 
 .registration_modal small span {

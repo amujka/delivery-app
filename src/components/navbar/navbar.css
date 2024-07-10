@@ -23,7 +23,7 @@
 }
 
 .navbar__icons_wrap button {
-	@apply hidden lg:block shrink-0 py-1 md:py-2.5 px-2 md:px-7 text-xs border border-gray-500 lg:hover:border-orange-500 lg:hover:text-orange-500 rounded-full;
+	@apply shrink-0 py-1 md:py-2.5 px-2 md:px-7 text-xs border border-gray-500 lg:hover:border-orange-500 lg:hover:text-orange-500 rounded-full;
 }
 
 .navbar__cart {

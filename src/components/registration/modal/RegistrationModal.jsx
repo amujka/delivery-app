@@ -2,6 +2,9 @@ import { useImperativeHandle, forwardRef, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import '../registration.css';
 import { assets } from '../../../assets/assets';
+import { login } from '../../../store/loginSlice';
+import { useDispatch } from 'react-redux';
+import { current } from '@reduxjs/toolkit';
 const RegistrationModal = forwardRef(({ theme }, ref) => {
 	const registrationModal = useRef();
 	useImperativeHandle(ref, () => {
@@ -17,6 +20,16 @@ const RegistrationModal = forwardRef(({ theme }, ref) => {
 
 	const [userData, setUserData] = useState({ email: '', password: '' });
 	const [accountExist, setAccountExist] = useState(false);
+
+	const userDataHandler = (data) => {
+		setUserData((prev) => ({ ...prev, [data.name]: data.value }));
+	};
+
+	const dispatch = useDispatch();
+	const sendUserDataHandler = () => {
+		dispatch(login(userData));
+		registrationModal.current.close();
+	};
 
 	return createPortal(
 		<dialog
@@ -34,9 +47,23 @@ const RegistrationModal = forwardRef(({ theme }, ref) => {
 					</button>
 				</div>
 
-				<input type='email' name='email' placeholder='email' />
-				<input type='text' name='password' placeholder='password' />
-				<button className='registration_modal__submit'>
+				<input
+					type='email'
+					name='email'
+					placeholder='email'
+					onChange={(e) => userDataHandler(e.target)}
+				/>
+				<input
+					type='password'
+					name='password'
+					placeholder='password'
+					onChange={(e) => userDataHandler(e.target)}
+				/>
+				<button
+					className='registration_modal__submit'
+					onClick={sendUserDataHandler}
+					disabled={!userData.email || !userData.password}
+				>
 					{accountExist ? 'Login' : 'Create account'}
 				</button>
 				{accountExist && (
