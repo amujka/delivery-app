@@ -69,9 +69,11 @@
 .menu__item figure {
 	@apply rounded-t-md overflow-hidden;
 }
+
 .menu__item_image {
 	@apply w-full;
 }
+
 .menu__item:hover .menu__item_image {
 	@apply scale-[1.1];
 }
