@@ -1,0 +1,31 @@
+.food_list {
+	@apply flex-1 p-4;
+}
+
+.food_list__caption {
+	@apply text-2xl font-semibold;
+}
+
+table {
+	@apply w-full border-collapse;
+}
+table thead {
+	@apply border-b;
+}
+
+table tr:not(thead tr) {
+	@apply cursor-pointer transition-colors duration-200;
+}
+
+table tr:nth-child(even) {
+	@apply bg-orange-100;
+}
+
+table tr:not(thead tr):hover {
+	@apply bg-orange-300;
+}
+
+table th,
+table td {
+	@apply text-start p-4;
+}

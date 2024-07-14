@@ -1,20 +1,16 @@
 .navigation {
-	@apply basis-40 border-r;
+	@apply basis-40 border-r border-orange-500;
 }
 
 .navigation__list {
-	@apply flex flex-col gap-4 mt-10;
-}
-
-.navigation__list li {
-	@apply border border-r-0;
+	@apply flex flex-col gap-4;
 }
 
 .navigation__list li a {
-	@apply block p-1 text-slate-500;
+	@apply block p-1 text-slate-500 border border-r-0;
 }
 
 .navigation__list li a.active,
 .navigation__list li a:hover {
-	@apply bg-orange-500 text-white;
+	@apply border-orange-500 text-orange-500;
 }

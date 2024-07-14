@@ -20,7 +20,6 @@ const router = createBrowserRouter([
 					try {
 						const response = await fetch('http://localhost:4000/api/food');
 						const { food } = await response.json();
-						console.log(food);
 						return food;
 					} catch (error) {
 						return error;
