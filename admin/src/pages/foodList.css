@@ -29,3 +29,7 @@ table th,
 table td {
 	@apply text-start p-4;
 }
+
+.foodlist__meal_image {
+	@apply w-20;
+}

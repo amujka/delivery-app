@@ -3,7 +3,7 @@ import './foodList.css';
 import { slugify } from '../assets/utils';
 const FoodList = () => {
 	const food = useLoaderData();
-	const tableColumns = ['', 'Image', 'Name', 'Category', 'Price'];
+	const tableColumns = ['Image', 'Name', 'Category', 'Price'];
 	const navigate = useNavigate();
 
 	const navigateToItemHandler = (foodName) => {
@@ -16,6 +16,7 @@ const FoodList = () => {
 			<table>
 				<thead>
 					<tr>
+						<th></th>
 						{tableColumns.map((column) => {
 							return <th key={column}>{column}</th>;
 						})}
@@ -29,7 +30,13 @@ const FoodList = () => {
 								onClick={() => navigateToItemHandler(meal.name)}
 							>
 								<td>{index + 1}.</td>
-								<td>{meal.image}</td>
+								<td>
+									<img
+										className='foodlist__meal_image'
+										src={`http://localhost:4000/images/${meal.image}`}
+										alt={meal.name}
+									/>
+								</td>
 								<td>{meal.name}</td>
 								<td>{meal.category}</td>
 								<td>{meal.price}</td>

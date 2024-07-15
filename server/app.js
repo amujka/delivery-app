@@ -11,12 +11,10 @@ app.use(cors());
 
 //DB connection
 connectDb();
-app.get('/', (req, res) => {
-	res.send('hello world');
-});
 
 //api ednpoint
 app.use('/api/food', foodRouter);
+app.use('/images', express.static('uploads'));
 
 app.listen(PORT, () => {
 	console.log(`server is running on ${PORT}`);
