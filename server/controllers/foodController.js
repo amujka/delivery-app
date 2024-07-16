@@ -1,5 +1,4 @@
 import foodModel from '../model/foodModel.js';
-import fs from 'fs';
 
 export const getFood = async (req, res) => {
 	try {
@@ -11,19 +10,17 @@ export const getFood = async (req, res) => {
 };
 
 export const addFood = async (req, res) => {
-	let image_filename = `${req.file.filename}`;
-	const food = new foodModel({
-		name: req.body.name,
-		description: req.body.description,
-		price: req.body.price,
-		category: req.body.category,
-		image: image_filename,
-	});
 	try {
+		const food = new foodModel({
+			name: req.body.name,
+			description: req.body.description,
+			price: req.body.price,
+			category: req.body.category,
+			image: req?.file?.filename,
+		});
 		await food.save();
-		res.json({ success: true, message: 'food added' });
+		res.json({ success: true, message: `${food.name} added` });
 	} catch (error) {
-		console.log(error);
-		res.json({ success: false, message: error });
+		res.json({ success: false, errors: error.errors });
 	}
 };

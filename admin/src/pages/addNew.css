@@ -1,0 +1,48 @@
+.form {
+	@apply flex flex-col gap-4 p-4;
+}
+
+.form__input_wrapper {
+	@apply flex flex-col gap-1;
+}
+
+.form__input_wrapper--dropdown {
+	@apply relative;
+}
+
+.form label {
+	@apply text-xs text-slate-500;
+}
+
+.form input,
+.form textarea {
+	@apply w-full border p-2;
+}
+
+.form__upload_img {
+	@apply cursor-pointer;
+}
+
+.form__category_price_wrapper {
+	@apply flex gap-4;
+}
+
+.form__category_price_wrapper > div {
+	@apply basis-1/2;
+}
+
+.form__selected_category {
+	@apply flex items-center justify-center border h-full cursor-pointer;
+}
+
+.form__category_options {
+	@apply absolute top-full left-0 w-full flex flex-col gap-1 p-1 bg-white border;
+}
+
+.form__category_options li {
+	@apply cursor-pointer hover:bg-orange-100;
+}
+
+.form button {
+	@apply px-2 py-1 bg-orange-500 text-white hover:bg-orange-400;
+}
