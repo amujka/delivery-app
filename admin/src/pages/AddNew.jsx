@@ -64,7 +64,7 @@ const AddNew = () => {
 				<label>Upload image</label>
 				<label htmlFor='image' className='form__upload_img'>
 					<img
-						className='w-52 aspect-square border'
+						className=''
 						src={
 							newMeal.image
 								? URL.createObjectURL(newMeal.image)

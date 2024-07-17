@@ -22,7 +22,11 @@ const MenuItem = ({ item, quantity }) => {
 		<li className='menu__item'>
 			<div className='menu__item_top'>
 				<figure>
-					<img className='menu__item_image' src={item.image} alt={item.name} />
+					<img
+						className='menu__item_image'
+						src={`http://localhost:4000/images/${item.image}`}
+						alt={item.name}
+					/>
 				</figure>
 				<div className='menu__show_amount'>
 					{showAmount ? (

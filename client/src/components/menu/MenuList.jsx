@@ -1,8 +1,10 @@
-import { food_list } from '../../assets/assets';
-import { useSelector } from 'react-redux';
 import MenuItem from './MenuItem';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useState } from 'react';
 const MenuList = ({ selectedCategory }) => {
-	const filteredFoodList = food_list.filter(
+	const [foodList, setFoodList] = useState([]);
+	const filteredFoodList = foodList.filter(
 		(food) => selectedCategory === 'All' || selectedCategory === food.category
 	);
 	const categories = [...new Set(filteredFoodList.map((item) => item.category))];
@@ -10,6 +12,15 @@ const MenuList = ({ selectedCategory }) => {
 	const findItemAmount = (id) => {
 		return items.find((item) => item._id === id)?.quantity || 0;
 	};
+	useEffect(() => {
+		async function getFood() {
+			const response = await fetch('http://localhost:4000/api/food');
+			const { food } = await response.json();
+			setFoodList(food);
+		}
+		getFood();
+	}, []);
+
 	return (
 		<div className='menu__container'>
 			{categories.map((category) => {
