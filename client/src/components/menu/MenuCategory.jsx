@@ -4,7 +4,7 @@ const MenuCategory = ({ category, onSelect, selectedCategory }) => {
 			className={`menu__category ${
 				selectedCategory === category.menu_name ? 'active' : null
 			}`}
-			onClick={() => onSelect(category.menu_name)}
+			onClick={() => onSelect(category.menu_name.toLowerCase())}
 		>
 			<figure>
 				<img src={category.menu_image} alt={category.menu_name} />
